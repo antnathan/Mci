@@ -1,0 +1,27 @@
+#Planejar matriz
+======================================================================
+-Corrigir bugs drag and drop:
+	*Não permitir dois drops numa mesma celula;(done)
+	*Corrigir a classe do botão;(done)
+-Implementar o retorno a grid de cadeiras;(done)
+**-Implementar o controle de que cadeiras estão na matriz e quais não;**
+-Implementar o filtro na grid;(done)
+\\-Implementar as trilhas.//
+\\-Implementar preenchimento pelo semestre;//
+\\-Implementar o botão de criar cadeira;//
+\\-Implementar o filtro de comentários e de professores e de semestre;//
+\\\\\\\-bug dos slots especiais que não ficam vazios;//////
+\\\\\\\-bug de voltar para a matriz quando muda o filtro;///////
+======================================================================
+#Comentar cadeira
+======================================================================
+-Implementar o comentário;(done)
+\\\\-Implementar o comentário sem digitar o nome quando voce vai de uma view para outra;///// -Implementar a seleção pelo conhecer cadeiras.
+-Implementar a divisão estuturada;
+======================================================================
+#Conhecer cadeiras
+======================================================================
+-Implementar filtros;(done)
+-Desativar o drag;(done)
+-Corrigir bugs.
+======================================================================

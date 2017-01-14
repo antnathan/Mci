@@ -1,0 +1,55 @@
+<!--Planejar Matriz-->
+<div class="conhe">
+<div class="fundo"></div>
+<div class="backmenor">	
+	<img src="imagens/cabecalho.png" id="cabecalhoMenor">
+	<form><input type="search" name="searchbar" ng-model="searchText"  placeholder="Escolha uma cadeira abaixo, ou busque aqui ;)"></input></form>
+	<div id='barradefiltro'>
+		<img src="imagens/list-icon.png">
+		<p class="filtro" style="display:inline;">Ver</p>
+	<select id="filtr1" ng-model="filtro">
+		<option class="red" value="Obrigatória">Obrigatórias</option>
+		<option class="blue" value="Optativa">Optativas</option>
+		<option class="green" value="Eletiva">Eletivas</option>
+		<option class="orange" value="Professor">Todas</option>
+	</select>
+	<p class="filtro" style="display:inline;">ordenadas por</p>
+	<select>
+		<option value="comm">comentários</option>
+		<option value="semes">semestre</option>
+		<option value="prof">professor</option>
+	</select>
+	<img src="imagens/iconlittle.png"/>
+		<button id="chamamatriz" onclick="location.href='#1';">Esconder a Matriz</button>
+	</div>
+</div>
+<div id="mostra" style="width: 65%;">
+	<div id="matriz">
+		<div id="{{j}}" slot="{{$index}}" ng-repeat="j in semestres">
+			<div class="number" id="{{'click'+j}}">{{$index+1}}</div>
+			<div class="slot" id="{{j+i}}" slot="{{i-1}}" ng-repeat="i in [1, 2, 3, 4, 5]" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="specialslot" id="{{j+'add'}}" slot="5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		</div>
+	</div>
+	<div class="card">
+	<descricao info="user.selectedObject"></descricao>
+	<label id="titulotrilhas">Trilhas</label>
+	<div id="boxtrilhas">
+		<div class="trilha" id="audiovisual" ng-mouseover="putTrilha(0)" ng-mouseleave="getTrilha(0)" ng-click="fixTrilha(0)" >Audiovisual</div>
+		<div class="trilha" id="sistemas">Sistemas</div>
+		<div class="trilha" id="jogos">Jogos</div>
+		<div class="trilha" id="animacao">Animação</div>
+	</div>
+	</div>
+	<div id="gridCadeirasMatriz">
+	<div id="voltar" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
+	<div id="{{'wrap'+cadeira.id}}" ng-repeat="cadeira in cadeiras | filter: filtro | filter:myFilterBy | filter: searchText ">
+	<div ng-click="getData(cadeira.id)" draggable="true" ondragstart="dragStart(event)" ondragend="some()" id="{{cadeira.id}}" class="discButton" name="{{cadeira.name}}" cheio="true" style="background: {{cadeira.color}}; color: white; border-color: lightgrey; text-transform: uppercase;">
+		{{ cadeira.name }}
+	</div>
+	</div>
+	</div>
+</div>
+</div>
+<footer id="footerMatriz"><button class="backbutton" onclick="location.href='#';"><img src="imagens/iconbackhome.png"/><br>Voltar para opções</button>
+<button class="backbutton"><img src="imagens/iconprint.png"/><br>Imprimir Matriz</button></footer>

@@ -1,0 +1,41 @@
+<!--Conhecer Cadeiras-->
+<div class="conhe">
+<div class="fundo"></div>
+<div class="backmenor">	
+	<img src="imagens/cabecalho.png" id="cabecalhoMenor">
+	<form><input type="search" name="searchbar" ng-model="searchText" placeholder="Escolha uma cadeira abaixo, ou busque aqui ;)"></input></form>
+	<div id='barradefiltro'>
+		<img src="imagens/list-icon.png">
+		<p class="filtro" style="display:inline;">Ver</p>
+	<select ng-model="filtro">
+		<option class="red" value="Obrigatória">Obrigatórias</option>
+		<option class="blue" value="Optativa">Optativas</option>
+		<option class="green" value="Eletiva">Eletivas</option>
+		<option class="orange" value="Professor">Todas</option>
+	</select>
+	<p class="filtro" style="display:inline;">ordenadas por</p>
+	<select>
+		<option value="comm">comentários</option>
+		<option value="semes">semestre</option>
+		<option value="prof">professor</option>
+	</select>
+	<img src="imagens/iconlittle.png"/>
+		<button id="chamamatriz" onclick="location.href='#2';">Chamar a Matriz</button>
+	</div>
+</div>
+<div id="mostra">
+	<div class="card" style="width:40%;">
+	<descricao info="user.selectedObject"></descricao>
+	</div>
+	<div id="gridCadeiras">
+	<div ng-repeat="cadeira in cadeiras | filter: filtro | filter: searchText" ng-click="getData(cadeira.id)" id="{{cadeira.id}}" class="discButton" style="background: {{cadeira.color}}; color: white; border-color: lightgrey; text-transform: uppercase;">
+	{{ cadeira.name }}
+		</div>
+	</div>
+</div>
+</div>
+<footer id="commentsection">
+<p id="titlecomms"><img src="imagens/iconcomments.png"/>Comentários:</p>
+<button class="backbutton" id="backcomment" onclick="location.href='#';" style="display:inline;"><img src="imagens/iconbackhome.png"/><br>Voltar para opções</button>
+<comentario info="desc.comentarios[0]"></comentario>
+</footer>
