@@ -1,0 +1,62 @@
+<!--Comentar Cadeiras-->
+<div class="backmenor">
+		<img src="imagens/cabecalho.png" id="cabecalhoMenor">
+</div>
+<div class="comentar">
+  <label>Conhecer cadeiras > <b>Novo comentário</b></label>
+  <div class="new">
+     <angucomplete-alt 
+          id="ex1" 
+          placeholder="{{ user.selectedObject.name }}" 
+          pause="100" 
+          selected-object="user.selectedObject"
+          initial-value="user.selecterObject.name"
+          local-data="cadeiras" 
+          search-fields="name" 
+          title-field="name" 
+          minlength="2" 
+          input-class="form-control" 
+          match-class="red"/>
+    </div>
+	  <form name="userForm" novalidate>
+    
+    <div class="form-group" ng-class="{ 'has-error': userForm.titulo.$touched && userForm.titulo.$invalid }">
+      <input type="text" name="titulo" class="form-control" 
+        ng-model="coment.titu"
+        placeholder="{{coment.titulo}}" 
+        required>
+        
+      <div class="help-block" ng-messages="userForm.titulo.$error" ng-if="userForm.titulo.$touched">
+          <p ng-message="required">É necessário colocar um título</p>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error': userForm.descricao.$touched && userForm.descricao.$invalid }">
+    <label>Mensagem: 
+      <form>
+        <input type="radio" name="mensagem" value="livre" checked> Livre</input>
+        <input type="radio" name="mensagem" value="estruturada"> Estruturada</input>
+      </form>
+    </label>
+      <textarea type="text" name="descricao" class="form-control-big" 
+      placeholder="{{coment.livre}}" 
+        ng-model="coment.desc"
+        ng-minlength="5"
+        required> </textarea>
+        
+      <div class="help-block" ng-messages="userForm.descricao.$error" ng-if="userForm.descricao.$touched">
+          <p ng-message="required">Não há nenhuma mensagem</p>
+          <p ng-message="minlength">Este comentário é muito curto</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" ng-click="submeter('titulo', 'descricao')" class="btn btn-danger">ENVIAR</button>
+    </div>
+    
+  </form>
+  
+</div>
+
+<footer id="footercomentar"><button class="backbutton" onclick="location.href='#conhecer';"><img src="imagens/back.png"/><br>Voltar para cadeiras</button>
+<button class="backbutton" onclick="location.href='#home';"><img src="imagens/iconbackhome.png"/><br>Voltar para opções</button></footer>
