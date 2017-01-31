@@ -12,6 +12,10 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     };
     $scope.filtro = '';
     $scope.ordem = 'semestre';
+    $scope.nomeCadeira = '';
+    $scope.colorCadeira = '#000';
+    $scope.count = $scope.user.cadeiras.length;
+
     $scope.submeter = function(descr){
         var descri = document.getElementsByName(descr)[0];
         var indexi = $scope.user.selectedObject.id;
@@ -130,7 +134,7 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         var num = 0;
         var jota = 0;
         while (num<1 && jota<8) {
-            for (var i = 0; i < $scope.user.matriz[jota].length; i++) {
+            for (var i = 0; i < $scope.user.matriz[jota].length-1; i++) {
                 var check = $scope.user.matriz[jota][i];
                 if(check == '' || check == undefined){
                     $scope.entrou(e);
@@ -166,6 +170,55 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         timer = $timeout(function () {
             console.log($scope.user.matriz);
         }, 100);
+    }
+
+    $scope.addCadeira = function(){
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        modal.style.display = "block";
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+
+    $scope.submeterCadeira = function(){
+        var modal = document.getElementById('myModal');
+        var novaCadeira = {
+            id: $scope.count,
+            name: $scope.nomeCadeira,
+            color: $scope.colorCadeira,
+            existe: false,
+            matriz: false,
+            apar: true
+         }
+         $scope.user.cadeiras.push(novaCadeira);
+         $scope.mandarMatriz($scope.count);
+         $scope.nomeCadeira = '';
+         $scope.count++;
+         modal.style.display = "none";
+    }
+
+    $scope.percorrerAtras = function(j,id){
+        var prerrequisito = $scope.user.cadeiras[ide].pre1;
+        if(prerrequisito != '')
+        if(j<=0){
+
+        }
+
     }
 
     $scope.semestres = ['sem1', 'sem2', 'sem3', 'sem4', 'sem5', 'sem6', 'sem7', 'sem8'];

@@ -26,9 +26,23 @@
 			</a>
 			<img id="imprime" src="imagens/iconprint.png"></img>
 			<img id="salva" src="imagens/save.png"></img>
+			<img id="nova" src="imagens/nova_cadeira.png" ng-click="addCadeira()"/>
 			<img id="limpar" src="imagens/clear.png" ng-click="limparMatriz()"/>
 			<img id="undo" src="imagens/undo.png" ng-click="voltar()"/>	
 		</div>	
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+			  <!-- Modal content -->
+			  <div class="modal-content">
+			    <span class="close">&times;</span>
+			    <p>Crie uma cadeira que não está disponível aqui.</p>
+			    <input type="text" name="cadeira" ng-model="nomeCadeira" placeholder="Coloque o nome da cadeira"></input>
+			    <input type="color" name="cor" ng-model="colorCadeira"></input>
+			    <button type="submit" class="btnModal" ng-click="submeterCadeira()">Criar cadeira</button>
+			  </div>
+
+			</div>
 	</div>
 </div>
 <div class="planejar">
@@ -42,6 +56,7 @@
 			ondragover="allowDrop(event)">
 				<div ng-click="getData(cadeira.id)" 
 				ng-if="i.apar"
+				ng-if="!i.matriz"
 				draggable="true" 
 				ondragstart="dragStart(event)" 
 				ondragend="some()" id="{{i.id}}" 
@@ -61,6 +76,7 @@
 			ondragend="some()" id="{{cadeira.id}}" 
 			class="discButton" name="{{cadeira.name}}" 
 			cheio="true" 
+			ng-if="cadeira.existe"
 			style="background: {{cadeira.color}}; color: white; border-color: lightgrey; text-transform: uppercase;">
 				{{ cadeira.name }}
 			</div>

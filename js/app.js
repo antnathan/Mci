@@ -13,10 +13,6 @@ app.config(function ($routeProvider) {
         controller:'InApp',
 		templateUrl: 'views/planejarmatriz/app.html'
 	})
-	.when('/comentar', {
-        controller:'InApp',
-		templateUrl: 'views/comentarcadeira/app.html'
-	})
 	.when('/404', {
 		templateUrl: 'views/404.html'
 	})
@@ -30,7 +26,7 @@ app.factory('userService', function($http){
 		selectedObject: {
         id:99999999,
         name:'Nome da Cadeira',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Tipo da cadeira',
          chp: 0,
          cht: 0,
@@ -112,7 +108,7 @@ app.factory('userService', function($http){
     {
         id:0,
         name:'Autoração Multimídia I',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 4,
          cht: 0,
@@ -122,12 +118,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:1,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:1,
         name:'Desenho I',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 4,
          cht: 0,
@@ -137,12 +134,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:1,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:2,
         name:'História do Design',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 0,
          cht: 4,
@@ -152,12 +150,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:1,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:3,
         name:'Introdução a Sistemas e Mídias Digitais',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 0,
          cht: 4,
@@ -167,12 +166,13 @@ app.factory('userService', function($http){
          apar: true,       
          semestre:1,   
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:4,
         name:'Programação I',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 2,
          cht: 2,
@@ -182,12 +182,13 @@ app.factory('userService', function($http){
          apar: true,     
          semestre:1,     
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:5,
         name:'Cognição e Tecnologias Digitais',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 0,
          cht: 4,
@@ -197,12 +198,13 @@ app.factory('userService', function($http){
          apar: true,      
          semestre:2,    
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:6,
         name:'Matemática Aplicada a Multimídia I',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 2,
          cht: 2,
@@ -212,12 +214,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:2,    
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:7,
         name:'Comunicação Visual I',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 2,
          cht: 2,
@@ -227,12 +230,13 @@ app.factory('userService', function($http){
          apar: true,  
          semestre:2,    
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:8,
         name:'Programação II',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 2,
          cht: 2,
@@ -242,12 +246,13 @@ app.factory('userService', function($http){
          apar: true,    
          semestre:2,          
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:9,
         name:'Narrativas Multimídia',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 2,
          cht: 2,
@@ -257,19 +262,21 @@ app.factory('userService', function($http){
          apar: true, 
          semestre:2,    
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {	
     	id: 10,
     	name:'Design de Interfaces Gráficas',
-    	 color:'#c0392B',
+    	 color:'#6A96DD',
     	 tipo: 'Obrigatória',
     	 chp: 4,
     	 cht: 0,
     	 professor: 'Estér Farias',
     	 ementa: 'Introdução às interfaces gráficas. Design gráfico aplicado às interfaces gráficas. Tecnologias de interfaces gráficas. Interfaces gráficas em sistemas multimídia online e offline. Interfaces gráficas em sistemas embarcados. Interfaces gráficas para jogos digitais. Avaliação e testes. Estudos de Caso ',
     	 pre:'Comunicação Visual I',
-         matriz: true,
+         matriz: true, 
+existe: true,
          semestre:3,
          apar: true,
     	 comentarios: [
@@ -285,7 +292,7 @@ app.factory('userService', function($http){
     {
     	id:11,
     	name:'Interação Humano-Computador',
-    	 color:'#c0392B',
+    	 color:'#6A96DD',
     	 tipo: 'Obrigatória',
     	 chp: 2,
     	 cht: 2,
@@ -295,12 +302,13 @@ app.factory('userService', function($http){
           apar: true,
           semestre:3,
          matriz: true, 
+existe: true, 
          comentarios: []
     	},
     {
     	id:12,
     	name:'Introdução à Cibercultura',
-    	 color:'#c0392B',
+    	 color:'#6A96DD',
     	 tipo: 'Obrigatória',
     	 chp: 0,
     	 cht: 4,
@@ -310,12 +318,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:3,
          matriz: true, 
+existe: true, 
          comentarios: []
     	},
     {
     	id:13,
     	name:'Autoração Multimídia II',
-    	 color:'#c0392B',
+    	 color:'#6A96DD',
     	 tipo: 'Obrigatória',
     	 chp: 4,
     	 cht: 0,
@@ -325,12 +334,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:3,
          matriz: true, 
+existe: true, 
          comentarios: []
     	},
     {
     	id:14,
     	name:'Projeto Integrado I',
-    	 color:'#c0392B',
+    	 color:'#6A96DD',
     	 tipo: 'Obrigatória',
     	 chp: 4,
     	 cht: 0,
@@ -340,12 +350,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:3,
          matriz: true, 
+existe: true, 
          comentarios: []
     	},
     {
         id:15,
         name:'Metodologia de Pesquisa Científica',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 0,
          cht: 4,
@@ -355,12 +366,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:4,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:16,
         name:'Ética e Política Autoral',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 0,
          cht: 4,
@@ -370,12 +382,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:6,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:17,
         name:'Gestão de Projetos Multimídia',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 2,
          cht: 2,
@@ -385,12 +398,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:6,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:18,
         name:'Trabalho de Conclusão do Curso I',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 2,
          cht: 2,
@@ -400,12 +414,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:7,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:19,
         name:'Projeto Integrado II',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 4,
          cht: 0,
@@ -415,13 +430,14 @@ app.factory('userService', function($http){
          apar: true, 
          semestre:7,         
          matriz: true, 
+existe: true, 
          comentarios: []
         },
 
     {
         id:20,
         name:'Trabalho de Conclusão do Curso II',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 4,
          cht: 0,
@@ -431,12 +447,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:8,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:21,
         name:'Seminários em Multimídia',
-         color:'#c0392B',
+         color:'#6A96DD',
          tipo: 'Obrigatória',
          chp: 0,
          cht: 4,
@@ -446,12 +463,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:8,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:22,
         name:'Análise e Projeto de Sistemas',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 2,
          cht: 2,
@@ -461,12 +479,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:4,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:23,
         name:'Estruturas de Dados',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 2,
          cht: 2,
@@ -476,12 +495,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:4,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:24,
         name:'Redes de Computadores',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 2,
          cht: 2,
@@ -491,12 +511,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:4,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:25,
         name:'Desenho II',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 4,
          cht: 0,
@@ -506,12 +527,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:4,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:26,
         name:'Fotografia',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 2,
          cht: 2,
@@ -521,12 +543,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:4,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:27,
         name:'Semiótica Aplicada',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 0,
          cht: 4,
@@ -535,13 +558,14 @@ app.factory('userService', function($http){
          pre:'Comunicação Visual I',
          apar: true,
          semestre:4,
-         matriz: true,
+         matriz: true, 
+existe: true,
          comentarios: []
         },
     {
         id:28,
         name:'Engenharia de Software',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 0,
          cht: 4,
@@ -551,12 +575,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:5,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:29,
         name:'Banco de Dados I',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 2,
          cht: 2,
@@ -566,12 +591,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:5,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:30,
         name:'Comunicação Visual II',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 4,
          cht: 0,
@@ -581,12 +607,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:5,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:31,
         name:'Design de Som',
-         color:'#27AE60',
+         color:'#0FC488',
          tipo: 'Eletiva',
          chp: 2,
          cht: 2,
@@ -596,12 +623,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:5,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:32,
         name:'Banco de Dados Aplicado à Multimídia',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -611,12 +639,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:33,
         name:'Cibercultura E Educação: Novas Práticas',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -626,12 +655,13 @@ app.factory('userService', function($http){
          apar: true,  
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:34,
         name:'Computação Física',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -640,13 +670,14 @@ app.factory('userService', function($http){
          pre:'Programação I',
          apar: true,
          semestre:9,
-         matriz: true,
+         matriz: true, 
+existe: true,
          comentarios: []
         },
     {
         id:35,
         name:'Computação Gráfica',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -656,12 +687,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:36,
         name:'Comunicação em Novas Mídias',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -671,12 +703,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:37,
         name:'Concepção de Cenários e Personagens',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -686,12 +719,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:38,
         name:'Cultura de Jogos',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -701,12 +735,13 @@ app.factory('userService', function($http){
          apar: true,  
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:39,
         name:'Desenvolvimento de Aplicações Distribuídas',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -716,12 +751,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:40,
         name:'Desenvolvimento de Jogos Casuais',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -731,12 +767,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:41,
         name:'Desenvolvimento de Motores Gráficos',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -746,12 +783,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:42,
         name:'Design de Jogos Digitais',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -761,12 +799,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:43,
         name:'Design Instrucional',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -775,13 +814,14 @@ app.factory('userService', function($http){
          pre:'Fundamentos de Material Didático para EAD',
          apar: true,
          semestre:9,
-         matriz: true,
+         matriz: true, 
+existe: true,
          comentarios: []
         },
     {
         id:44,
         name:'Direção de Arte para Multimídia',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -791,12 +831,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:45,
         name:'Edição Audiovisual',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -806,12 +847,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:46,
         name:'Educomunicação',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -821,12 +863,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:47,
         name:'Experimentos em Multimídia I',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -836,12 +879,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:48,
         name:'Experimentos em Tipografia Digital',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -851,12 +895,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:49,
         name:'Ferramentas de Modelagem Tridimensional',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -866,12 +911,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:50,
         name:'Filosofia da Tecnologia',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -881,12 +927,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:51,
         name:'Frameworks de Software',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -896,12 +943,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:52,
         name:'Gerência de Projetos de Software',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -911,12 +959,13 @@ app.factory('userService', function($http){
          apar: true, 
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:53,
         name:'Gestão de Negócios em Multimídia',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -926,12 +975,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:54,
         name:'Instalações Multimídia',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -941,12 +991,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:55,
         name:'Inteligência Computacional Aplicada a Jogos I',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -956,12 +1007,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:56,
         name:'Inteligência Computacional Aplicada a Jogos I',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -970,13 +1022,14 @@ app.factory('userService', function($http){
          pre:'Inteligência Computacional Aplicada a Jogos I',
          apar: true,
          semestre:9,
-         matriz: true,
+         matriz: true, 
+existe: true,
          comentarios: []
         },
     {
         id:57,
         name:'Introdução a Computação Móvel e Ubíqua',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -986,12 +1039,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:58,
         name:'Jogos Distribuídos',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1001,12 +1055,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:59,
         name:'Jogos Multiplataforma',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1016,12 +1071,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:60,
         name:'Jogos para Consoles',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1031,12 +1087,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:61,
         name:'Laboratório de Criatividade',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1046,12 +1103,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:62,
         name:'Laboratório de Programação',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1061,12 +1119,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:63,
         name:'Linguagem Audiovisual',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1076,12 +1135,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:64,
         name:'Linguagem de Programação Script',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1091,12 +1151,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:65,
         name:'Matemática e Física para Jogos',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1106,12 +1167,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:66,
         name:'Mitologia Universais',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -1121,12 +1183,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:67,
         name:'Mitos e Arquétipos',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -1136,12 +1199,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:68,
         name:'Procecessamento de Áudio',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 0,
          cht: 4,
@@ -1151,12 +1215,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:69,
         name:'Produção Audiovisual',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1166,12 +1231,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:70,
         name:'Programação para Jogos I',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1181,12 +1247,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:71,
         name:'Programação para Jogos II',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1196,12 +1263,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:72,
         name:'Programação para Web I',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1211,12 +1279,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:73,
         name:'Programação para Web II',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1226,12 +1295,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:74,
         name:'Redação para Mídias Digitais',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1241,12 +1311,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:75,
         name:'Sistemas Distribuídos',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1256,12 +1327,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:76,
         name:'Sistemas Embarcados',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1271,12 +1343,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:77,
         name:'Técnicas de Animação Analógica',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1286,12 +1359,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:78,
         name:'Técnicas de Animação Digital I',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1301,12 +1375,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:79,
         name:'Teste de Software Aplicado',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 2,
          cht: 2,
@@ -1316,12 +1391,13 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
     {
         id:80,
         name:'Videografismo',
-         color:'#2980B9',
+         color:'#AC84E0',
          tipo: 'Optativa',
          chp: 4,
          cht: 0,
@@ -1331,6 +1407,7 @@ app.factory('userService', function($http){
          apar: true,
          semestre:9,
          matriz: true, 
+existe: true, 
          comentarios: []
         },
 ]

@@ -30,7 +30,7 @@
 	<descricao info="user.selectedObject"></descricao>
 	</div>
 	<div id="gridCadeiras2">
-	<div ng-repeat="cadeira in cadeiras | filter: filtro | filter: searchText | orderBy: ordem" ng-click="getData(cadeira.id)" id="{{cadeira.id}}" class="discConhe" style="background: {{cadeira.color}}">
+	<div ng-repeat="cadeira in cadeiras | filter: filtro | filter: searchText | orderBy: ordem" ng-if="cadeira.existe" ng-click="getData(cadeira.id)" id="{{cadeira.id}}" class="discConhe" style="background: {{cadeira.color}}">
 	{{ cadeira.name }}
 		</div>
 	</div>

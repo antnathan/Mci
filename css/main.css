@@ -79,12 +79,15 @@ h4 {
 }
 
 h5{
-	margin-left: 3%;
-	display: inline;
+	margin-left: 0;
+	display: block;
 	padding: 5px;
+	width: 100px;
 	color: #fff;
 	text-transform: uppercase;
 }
+
+
 
 hr {
 	width: 50%;
@@ -199,7 +202,7 @@ div.trilha{
 .slot3,
 .slot4{
 	vertical-align: middle;
-	background-color: lightgray;
+	background-color: #d3d3d3;
 	text-align: center;
 	font-size: small;
 	padding: 5px;
@@ -214,17 +217,16 @@ div.trilha{
 .slot5,
 .slot6{
 	vertical-align: middle;
+	background-color: #efefef;
 	text-align: center;
 	font-size: small;
 	padding: 5px;
-	width: 77px;
-	height: 37px;
+	width: 80px;
+	height: 40px;
 	margin: 5px;
 	display: inline-flex;
 	border-radius: 10%;
-	border-width: 3px;
-	border-style: solid;
-	border-color:lightgray;
+    border-width: 1px;
 }
 
 .card{
@@ -310,16 +312,16 @@ div.trilha{
 }
 
 .discConhe{
-	width: 100px;
-	height: 48px;
-	text-align: left;
-	margin: 5px;
-	padding: 2%;
-	display: inline-flex;
-	border-radius: 10%;
+    width: 100px;
+    height: 45px;
+    text-align: left;
+    margin: 5px;
+    padding: 2% 4% 6% 1%;
+    display: inline-flex;
+    border-radius: 10%;
     border-width: 1px;
-	border: transparent;
-	text-transform: uppercase;
+    border: transparent;
+    text-transform: uppercase;
 }
 
 .discButton.selected{
@@ -499,12 +501,37 @@ div.trilha{
 	font-style: lighter;
 }
 
-#spaceup{
-	margin-top: 5%;
+#tipo{
+	position: absolute;
+	top: 40px;
+}
+
+#spaced1{
+	position: absolute;
+	top:100px;
 	}
 
-#spaced{
-	margin-bottom: 5%;
+#spaced2{
+	position: absolute;
+	top:125px;
+}
+
+#spaced3{
+	position: absolute;
+	top:150px;
+}
+#spaced4{
+	position: absolute;
+	top:175px;
+}
+#spaced5{
+	position: absolute;
+	top:200px;
+}
+
+#spaced6{
+	position: absolute;
+	top:235px;
 }
 
 #mostraMatriz{
@@ -533,20 +560,20 @@ div.trilha{
 }
 
 #conhecerButton:hover{
-	    background-position:right;
+	background-position:right;
 }
 
 #planejarButton {
-	background: -webkit-linear-gradient(top, #00C56E 50%, white 50%);
-	background: -o-linear-gradient(top, #00C56E 50%, white 50%);
-	background: linear-gradient(to top, #00C56E 50%, white 50%);
-	background-size: 100% 200%;
-	background-position:bottom;
+	background: -webkit-linear-gradient(right, #00C56E 50%, white 50%);
+	background: -o-linear-gradient(right, #00C56E 50%, white 50%);
+	background: linear-gradient(to left, #00C56E 50%, white 50%);
+	background-size: 200% 100%;
+	background-position:right;
 	transition:all 1s ease-out;
 }
 
 #planejarButton:hover{
-	background-position:top;
+	background-position:left;
 }
 
 #comentarButton {
@@ -560,13 +587,15 @@ div.trilha{
 }
 
 #comentarButton:hover{
-	    background-position:left;
+	background-position:left;
 }
 
 #desc{
 	text-align: left;
 	overflow: hidden;
 	margin-top: 5%;
+	position: relative;
+	height: 500px;
 }
 
 #footerMatriz, #footercomentar{
@@ -802,7 +831,7 @@ div.trilha{
 
 #limpar{
 	float: right;
-	margin-right: -18%;
+	margin-right: -23%;
 	width: 3%;
 	height: auto;
 	cursor: pointer;
@@ -811,8 +840,17 @@ div.trilha{
 
 #undo{
 	float: right;
-	margin-right: -23%;
+	margin-right: -28%;
 	width: 3%;
+	height: auto;
+	cursor: pointer;
+}
+
+#nova{
+	float: right;
+	margin-right: -18%;
+	width: 3%;
+	vertical-align: middle;
 	height: auto;
 	cursor: pointer;
 }
@@ -863,6 +901,8 @@ div.trilha{
 	color: #5a5a63;
 	font-weight: lighter;
 	display: inline;
+	position: absolute;
+	top: 2px;
 	font-family: "FiraSans-Bold";
 }
 
@@ -1008,6 +1048,66 @@ font-size: small;}
 		height: 8vh;
 		width: auto;
 	}
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #ecf0f1;
+    margin: auto;
+    color:#63b6f8;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+input[name=cadeira]{
+	width: 200px;
+	margin: 20px 1px;
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btnModal{
+	border: none;
+	padding: 5px;
+	display: block;
+	background-color: #ff4b68;
+	color: white;
+	margin: 20px 1px;
+	background: -webkit-linear-gradient(top, white 50%, #ff4b68 50%);
+	background: -o-linear-gradient(top, white 50%, #ff4b68 50%);
+	background: linear-gradient(to top, white 50%, #ff4b68 50%);
+	background-size: 100% 200%;
+	background-position:top;
+	transition:all 1s ease-out;
+
 }
 
 @font-face {

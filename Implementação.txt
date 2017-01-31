@@ -7,7 +7,7 @@
 **********************************************************************************
 *********************-Implementar o botão de criar cadeira;***********************
 **********************************************************************************
-Implementar um dialogo para escolher o nome da cadeira. criar uma div com o modelo de cadeira atual
+Implementar um dialogo para escolher o nome da cadeira. criar uma div com o modelo de cadeira atual(done)
 **********************************************************************************
 
 
