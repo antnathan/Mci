@@ -1,55 +1,81 @@
 <!--Planejar Matriz-->
-<div class="conhe">
-<div class="fundo"></div>
 <div class="backmenor">	
-	<img src="imagens/cabecalho.png" id="cabecalhoMenor">
-	<form><input type="search" name="searchbar" ng-model="searchText"  placeholder="Escolha uma cadeira abaixo, ou busque aqui ;)"></input></form>
+	<a href="#home" class="sumir">
+		<img src="imagens/cabecalho.png" id="cabecalhoMenor">
+	</a>
 	<div id='barradefiltro'>
-		<img src="imagens/list-icon.png">
-		<p class="filtro" style="display:inline;">Ver</p>
-	<select id="filtr1" ng-model="filtro">
-		<option class="red" value="Obrigatória">Obrigatórias</option>
-		<option class="blue" value="Optativa">Optativas</option>
-		<option class="green" value="Eletiva">Eletivas</option>
-		<option class="orange" value="Professor">Todas</option>
-	</select>
-	<p class="filtro" style="display:inline;">ordenadas por</p>
-	<select>
-		<option value="comm">comentários</option>
-		<option value="semes">semestre</option>
-		<option value="prof">professor</option>
-	</select>
-	<img src="imagens/iconlittle.png"/>
-		<button id="chamamatriz" onclick="location.href='#1';">Esconder a Matriz</button>
+		<form>
+			<input type="search" name="searchbar" ng-model="searchText"  placeholder="Escolha uma cadeira abaixo, ou busque aqui." ondrop="return false;"></input>
+		</form>
+		<div>
+			<p class="filtro">Ver</p>
+			<select id="filtr1" ng-model="filtro">
+				<option class="cor" value="Obrigatória">Obrigatórias</option>
+				<option class="cor" value="Optativa">Optativas</option>
+				<option class="cor" value="Eletiva">Eletivas</option>
+				<option class="cor" value="">Todas</option>
+			</select>
+			<p class="filtro" id="ord">Ordenadas por</p>
+			<select ng-model="ordem">
+				<option class="cor" value="-comentarios.length">comentários</option>
+				<option class="cor" value="semestre">semestre</option>
+				<option class="cor" value="professor">professor</option>
+			</select>
+			<a href="#conhecer" class="sumir" >
+				<img id="chamamatrizimg" src="./imagens/icon2.png"></img>
+			</a>
+			<img id="imprime" src="imagens/iconprint.png"></img>
+			<img id="salva" src="imagens/save.png"></img>
+			<img id="limpar" src="imagens/clear.png" ng-click="limparMatriz()"/>
+			<img id="undo" src="imagens/undo.png" ng-click="voltar()"/>	
+		</div>	
 	</div>
 </div>
-<div id="mostra" style="width: 65%;">
+<div class="planejar">
 	<div id="matriz">
-		<div id="{{j}}" slot="{{$index}}" ng-repeat="j in semestres">
-			<div class="number" id="{{'click'+j}}">{{$index+1}}</div>
-			<div class="slot" id="{{j+i}}" slot="{{i-1}}" ng-repeat="i in [1, 2, 3, 4, 5]" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-			<div class="specialslot" id="{{j+'add'}}" slot="5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div id="{{'sem'+($index)}}" slot="{{$index}}" ng-repeat="j in matriz track by $index">
+			<div class="number" id="{{'click'+$index}}" ng-click="fixSemestre($index)">{{$index+1}}</div>
+			<div class="{{'slot'+$index}}"
+			slot="{{$index}}" 
+			ng-repeat="i in j track by $index" 
+			ondrop="drop(event)" 
+			ondragover="allowDrop(event)">
+				<div ng-click="getData(cadeira.id)" 
+				ng-if="i.apar"
+				draggable="true" 
+				ondragstart="dragStart(event)" 
+				ondragend="some()" id="{{i.id}}" 
+				class="discButtonMatriz" name="{{i.name}}" 
+				cheio="true" 
+				style="background: {{i.color}}; color: white; border-color: lightgrey; text-transform: uppercase;">
+					{{ i.name }}</div>
+			</div>
 		</div>
 	</div>
-	<div class="card">
-	<descricao info="user.selectedObject"></descricao>
-	<label id="titulotrilhas">Trilhas</label>
-	<div id="boxtrilhas">
-		<div class="trilha" id="audiovisual" ng-mouseover="putTrilha(0)" ng-mouseleave="getTrilha(0)" ng-click="fixTrilha(0)" >Audiovisual</div>
-		<div class="trilha" id="sistemas">Sistemas</div>
-		<div class="trilha" id="jogos">Jogos</div>
-		<div class="trilha" id="animacao">Animação</div>
-	</div>
-	</div>
 	<div id="gridCadeirasMatriz">
-	<div id="voltar" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
-	<div id="{{'wrap'+cadeira.id}}" ng-repeat="cadeira in cadeiras | filter: filtro | filter:myFilterBy | filter: searchText ">
-	<div ng-click="getData(cadeira.id)" draggable="true" ondragstart="dragStart(event)" ondragend="some()" id="{{cadeira.id}}" class="discButton" name="{{cadeira.name}}" cheio="true" style="background: {{cadeira.color}}; color: white; border-color: lightgrey; text-transform: uppercase;">
-		{{ cadeira.name }}
+		<div class="disc" id="{{'wrap'+cadeira.id}}" 
+		ng-repeat="cadeira in cadeiras | filter: filtro | filter:myFilterBy | filter: searchText | orderBy: ordem ">
+			<div ng-click="mandarMatriz(cadeira.id)" 
+			draggable="true" 
+			ondragstart="dragStart(event)" 
+			ondragend="some()" id="{{cadeira.id}}" 
+			class="discButton" name="{{cadeira.name}}" 
+			cheio="true" 
+			style="background: {{cadeira.color}}; color: white; border-color: lightgrey; text-transform: uppercase;">
+				{{ cadeira.name }}
+			</div>
+		</div>
 	</div>
+	<div class="cardPlan">
+		<div id="voltar" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
+		<label id="titulotrilhas">Trilhas</label>
+		<div id="boxtrilhas">
+			<div class="trilha" id="audiovisual" ng-mouseover="putTrilha(0)" ng-mouseleave="getTrilha(0)" ng-click="fixTrilha(0)" >Audiovisual</div>
+			<div class="trilha" id="sistemas">Sistemas</div>
+			<div class="trilha" id="jogos">Jogos</div>
+			<div class="trilha" id="animacao">Animação</div>
+			<p id="dicaTrilha"> Ponha o mouse <b>sobre</b> uma trilha para visualizá-la na matriz. <b>Clique</b> para fixá-la.</p>
+		</div>
 	</div>
-	</div>
+	<footer id="footDown"></footer>
 </div>
-</div>
-<footer id="footerMatriz"><button class="backbutton" onclick="location.href='#';"><img src="imagens/iconbackhome.png"/><br>Voltar para opções</button>
-<button class="backbutton"><img src="imagens/iconprint.png"/><br>Imprimir Matriz</button></footer>

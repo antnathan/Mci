@@ -1,10 +1,8 @@
 <!--Comentar Cadeiras-->
-<div class="coment">
-<div class="fundo"></div>
 <div class="backmenor">
 		<img src="imagens/cabecalho.png" id="cabecalhoMenor">
 </div>
-<div class="mostra">
+<div class="comentar">
   <label>Conhecer cadeiras > <b>Novo comentário</b></label>
   <div class="new">
      <angucomplete-alt 
@@ -12,7 +10,6 @@
           placeholder="{{ user.selectedObject.name }}" 
           pause="100" 
           selected-object="user.selectedObject"
-          clear-selected="true"
           initial-value="user.selecterObject.name"
           local-data="cadeiras" 
           search-fields="name" 
@@ -60,6 +57,6 @@
   </form>
   
 </div>
-</div>
-<footer id="footercomentar"><button class="backbutton" onclick="location.href='#1';"><img src="imagens/back.png"/><br>Voltar para cadeiras</button>
-<button class="backbutton" onclick="location.href='#';"><img src="imagens/iconbackhome.png"/><br>Voltar para opções</button></footer>
+
+<footer id="footercomentar"><button class="backbutton" onclick="location.href='#conhecer';"><img src="imagens/back.png"/><br>Voltar para cadeiras</button>
+<button class="backbutton" onclick="location.href='#home';"><img src="imagens/iconbackhome.png"/><br>Voltar para opções</button></footer>
