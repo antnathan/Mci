@@ -82,7 +82,7 @@ h5{
 	margin-left: 0;
 	display: block;
 	padding: 5px;
-	width: 100px;
+	width: 120px;
 	color: #fff;
 	text-transform: uppercase;
 }
@@ -236,9 +236,8 @@ div.trilha{
 
 .cardPlan{
 	display: inline-block;
-	position: absolute;
-	right: 7%;
-	bottom: 35%;
+	height: 480px;
+    width: 12%;
 }
 
 .number{
@@ -282,14 +281,15 @@ div.trilha{
 }
 
 .discButton{
-	width: 100px;
-	height: 60px;
+	width: 80px;
+	height: 40px;
+	border-width: 1px;
+	padding: 5px;
+	font-weight: lighter;
 	text-align: left;
 	margin: 5px;
-	padding: 1%;
 	display: inline-flex;
 	border-radius: 10%;
-    border-width: 1px;
 	border: transparent;
 	cursor: move;
 	font-size: 10px;
@@ -661,7 +661,7 @@ div.trilha{
 
 #gridCadeirasMatriz{
 	height: 480px;
-	width: 40%;
+	width: 18%;
     overflow-x: hidden;
     overflow-y: visible;
     margin-left: 10%;
@@ -730,12 +730,10 @@ div.trilha{
 
 
 #boxtrilhas{
-	position: absolute;
 	display: block;
 	margin-bottom: 0%;
 	left: 10%;
 	font-family: "FiraSans-Light";
-	vertical-align: sub;
 
 }
 
@@ -775,7 +773,7 @@ div.trilha{
 }
 
 #voltar{
-	visibility: hidden;
+	visibility: visible;
 	display: inline-block;
 	width: 100px;
 	height: 80px;
@@ -814,45 +812,42 @@ div.trilha{
 }
 
 #imprime{
-	float: right;
-	margin-right: -8%;
-	width: 2.5%;
-	height: auto;
-	cursor: pointer;
-}
-
-#salva{
-	float: right;
-	margin-right: -13%;
-	width: 2.5%;
-	height: auto;
-	cursor: pointer;
-}
-
-#limpar{
-	float: right;
-	margin-right: -23%;
-	width: 3%;
-	height: auto;
-	cursor: pointer;
-	filter: invert(100%) brightness(200%);
-}
-
-#undo{
-	float: right;
-	margin-right: -28%;
-	width: 3%;
-	height: auto;
-	cursor: pointer;
-}
-
-#nova{
-	float: right;
-	margin-right: -18%;
-	width: 3%;
+	display: block;
+	width: 13%;
+	margin: 10px auto;
 	vertical-align: middle;
 	height: auto;
 	cursor: pointer;
+	filter: invert(70%);
+}
+
+#limpar{
+	display: block;
+	width: 13%;
+	margin: 10px auto;
+	vertical-align: middle;
+	height: auto;
+	cursor: pointer;
+}
+
+#undo{
+	display: block;
+	width: 13%;
+	margin: 10px auto;
+	vertical-align: middle;
+	height: auto;
+	cursor: pointer;
+	filter: invert(70%);
+}
+
+#nova{
+	display: block;
+	width: 13%;
+	margin: 10px auto;
+	vertical-align: middle;
+	height: auto;
+	cursor: pointer;
+	filter: invert(70%);
 }
 
 #commentbox{

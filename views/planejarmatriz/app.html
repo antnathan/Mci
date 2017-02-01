@@ -24,11 +24,6 @@
 			<a href="#conhecer" class="sumir" >
 				<img id="chamamatrizimg" src="./imagens/icon2.png"></img>
 			</a>
-			<img id="imprime" src="imagens/iconprint.png"></img>
-			<img id="salva" src="imagens/save.png"></img>
-			<img id="nova" src="imagens/nova_cadeira.png" ng-click="addCadeira()"/>
-			<img id="limpar" src="imagens/clear.png" ng-click="limparMatriz()"/>
-			<img id="undo" src="imagens/undo.png" ng-click="voltar()"/>	
 		</div>	
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
@@ -83,9 +78,15 @@
 		</div>
 	</div>
 	<div class="cardPlan">
+	<div id="menu">		
 		<div id="voltar" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
-		<label id="titulotrilhas">Trilhas</label>
+		<img id="imprime" src="imagens/iconprint.png"></img>
+		<img id="nova" src="imagens/nova_cadeira.png" ng-click="addCadeira()"/>
+		<img id="limpar" src="imagens/clear.png" ng-click="limparMatriz()"/>
+		<img id="undo" src="imagens/undo.png" ng-click="voltar()"/>
+		</div>
 		<div id="boxtrilhas">
+			<label id="titulotrilhas">Trilhas</label>
 			<div class="trilha" id="audiovisual" ng-mouseover="putTrilha(0)" ng-mouseleave="getTrilha(0)" ng-click="fixTrilha(0)" >Audiovisual</div>
 			<div class="trilha" id="sistemas">Sistemas</div>
 			<div class="trilha" id="jogos">Jogos</div>
