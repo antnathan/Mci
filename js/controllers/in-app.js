@@ -66,7 +66,6 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         }
 
     $scope.putTrilha = function(ide) {
-                $scope.talimpo();
 		var vet = $scope.user.trilhas[ide].matriz;
         //$scope.user.trilhas[ide].fixa = true;
 		timer = $timeout(function () {
