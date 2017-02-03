@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', 'ngMessages', 'angucomplete-alt', '720kb.tooltips']);
+var app = angular.module('myApp', ['ngRoute']);
 app.config(function ($routeProvider) { 
   $routeProvider 
     .when('/home', { 
