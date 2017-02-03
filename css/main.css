@@ -237,14 +237,21 @@ div.trilha{
 .cardPlan{
 	display: inline-block;
 	height: 480px;
+	position: absolute;
+	top: 23%;
+	right: 3%;
     width: 12%;
 }
 
 .number{
 	display: inline-block;
+	position: relative;
 	height: 55px;
 	width: 55px;
 	text-align: center;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: black;
 	line-height: 40px;
 	margin: auto;
 	cursor: pointer;
@@ -397,6 +404,45 @@ div.trilha{
 	text-align: center;
 	vertical-align: middle;
 	display: inline-block;
+}
+
+#pessoa{
+	color: #ff4b68 ;
+	font-size: larger;
+}
+
+.number .tooltiptext {
+	color: #fff;
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: "FiraSans-Book";
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 3;
+    line-height: 20px;
+    bottom: 100%;
+    left: -98%;
+    margin-left: -20px;
+}
+
+.number .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.number:hover .tooltiptext {
+    visibility: visible;
 }
 
 .has-error .help-block,
@@ -658,6 +704,21 @@ div.trilha{
     padding: 10px;
 }
 
+.sobs{
+	color: #5a5a63;
+    font-size: 11px;
+    font-weight: lighter;
+    margin: 5px 0;
+    margin-right:16%;
+    font-family: "FiraSans-Book";
+}
+.subs{
+	color: #5a5a63;
+    font-size: 10px;
+    font-weight: lighter;
+    margin: 5px 0;
+    font-family: "FiraSans-Medium";
+}
 
 #gridCadeirasMatriz{
 	height: 480px;
@@ -665,12 +726,13 @@ div.trilha{
     overflow-x: hidden;
     overflow-y: visible;
     margin-left: 10%;
-
 }
+
+
 
 #dicaTrilha{
     color: #5a5a63;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: lighter;
     margin: 5px 0;
     font-family: "FiraSans-Book";
@@ -740,7 +802,7 @@ div.trilha{
 #titulotrilhas{
 	color: #2980B9;
 	text-align: left;
-	margin-left: 10%;
+	margin-left: 0%;
 }
 
 #backcomment{
@@ -773,14 +835,28 @@ div.trilha{
 }
 
 #voltar{
-	visibility: visible;
+	visibility: hidden;
 	display: inline-block;
-	width: 100px;
-	height: 80px;
-	background-color: grey;
+	width: 90px;
+	height: 70px;
+	line-height: 70px;
+	background-color: lightgrey;
 	border-style: dashed;
+	border-color: grey;
 	border-radius:10%;
 	border-width: 3px;
+}
+
+#textoVoltar{
+	display: inline-block;
+  	vertical-align: middle;
+  	line-height: normal;
+  	color: #5a5a63;
+    font-size: 10px;
+    font-weight: lighter;
+    margin: auto;
+    text-align: center;
+    font-family: "FiraSans-Medium";
 }
 
 #backImg{
@@ -813,8 +889,8 @@ div.trilha{
 
 #imprime{
 	display: block;
-	width: 13%;
-	margin: 10px auto;
+	width: 18%;
+	margin: 7px auto;
 	vertical-align: middle;
 	height: auto;
 	cursor: pointer;
@@ -823,8 +899,8 @@ div.trilha{
 
 #limpar{
 	display: block;
-	width: 13%;
-	margin: 10px auto;
+	width: 18%;
+	margin: 5px auto;
 	vertical-align: middle;
 	height: auto;
 	cursor: pointer;
@@ -832,8 +908,8 @@ div.trilha{
 
 #undo{
 	display: block;
-	width: 13%;
-	margin: 10px auto;
+	width: 18%;
+	margin: 5px auto;
 	vertical-align: middle;
 	height: auto;
 	cursor: pointer;
@@ -842,20 +918,32 @@ div.trilha{
 
 #nova{
 	display: block;
-	width: 13%;
-	margin: 10px auto;
+	width: 18%;
+	margin: 10px auto 5px auto;
 	vertical-align: middle;
 	height: auto;
 	cursor: pointer;
 	filter: invert(70%);
 }
 
+.ATOLK{
+	osition: absolute;
+	top: 0;
+	right: 0;
+	background-color: #ffb25b;
+	height: 50px;
+	width: 50px;
+	z-index: 5;
+}
+
 #commentbox{
 	color: #5a5a63;
 	margin-top: 10px;
-	background-color: white;
+	padding-top: 10px;
+	background-color: #ffedf0;
 	height: 100px;
 	border-radius: 20px;
+	font-family: "FiraSans-Medium"
 }
 
 #barradefiltro{
@@ -876,6 +964,8 @@ div.trilha{
 	height: 15px;
 	background: #ff4b68;
 	display: table;
+	position: absolute;
+	bottom: -15%;
 }
 
 
@@ -1024,8 +1114,7 @@ font-size: small;}
 	}
 	#comentario {
 		width: 50%;
-		margin-top: 20px;
-		margin-bottom: 40px;
+		margin: 40px auto;
 	}
 	#titlecomms img{
 		height: 20px;

@@ -43,7 +43,7 @@
 <div class="planejar">
 	<div id="matriz">
 		<div id="{{'sem'+($index)}}" slot="{{$index}}" ng-repeat="j in matriz track by $index">
-			<div class="number" id="{{'click'+$index}}" ng-click="fixSemestre($index)">{{$index+1}}</div>
+			<div class="number" id="{{'click'+$index}}" ng-click="fixSemestre($index)"><span class="tooltiptext">Clique para preencher o semestre com as cadeiras obrigatórias</span>{{$index+1}}</div>
 			<div class="{{'slot'+$index}}"
 			slot="{{$index}}" 
 			ng-repeat="i in j track by $index" 
@@ -62,6 +62,8 @@
 			</div>
 		</div>
 	</div>
+	<div>
+	<p class="sobs">Clique ou arraste para planejar sua matriz</p>
 	<div id="gridCadeirasMatriz">
 		<div class="disc" id="{{'wrap'+cadeira.id}}" 
 		ng-repeat="cadeira in cadeiras | filter: filtro | filter:myFilterBy | filter: searchText | orderBy: ordem ">
@@ -77,13 +79,18 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	<div class="cardPlan">
 	<div id="menu">		
-		<div id="voltar" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
+		<div id="voltar" ondrop="drop2(event)" ondragover="allowDrop(event)"><span id="textoVoltar">Retirar da matriz</span></div>
 		<img id="imprime" src="imagens/iconprint.png"></img>
+		<p class="subs">Imprimir matriz</p>
 		<img id="nova" src="imagens/nova_cadeira.png" ng-click="addCadeira()"/>
+		<p class="subs">Criar nova cadeira</p>
 		<img id="limpar" src="imagens/clear.png" ng-click="limparMatriz()"/>
+		<p class="subs">Limpar matriz</p>
 		<img id="undo" src="imagens/undo.png" ng-click="voltar()"/>
+		<p class="subs">Desfazer</p>
 		</div>
 		<div id="boxtrilhas">
 			<label id="titulotrilhas">Trilhas</label>
@@ -91,7 +98,7 @@
 			<div class="trilha" id="sistemas">Sistemas</div>
 			<div class="trilha" id="jogos">Jogos</div>
 			<div class="trilha" id="animacao">Animação</div>
-			<p id="dicaTrilha"> Ponha o mouse <b>sobre</b> uma trilha para visualizá-la na matriz. <b>Clique</b> para fixá-la.</p>
+			<p id="dicaTrilha"> Passe o mouse <b>sobre</b> uma trilha para visualizá-la na matriz. <b>Clique</b> para fixá-la.</p>
 		</div>
 	</div>
 	<footer id="footDown"></footer>
