@@ -23,16 +23,18 @@ function dragStart(ev) {
 // function called when the dragged element is dropped
 function drop(ev) {
   var cheio = ev.target.hasAttribute("cheio");
+  var drag_data = ev.dataTransfer.getData('Text');
+  var j = ev.target.parentElement.getAttribute("slot");
+  var pode = angular.element(document.getElementById('ctrl')).scope().percorrerAtras(j,drag_data);
   if(ev.preventDefault) { ev.preventDefault(); }
-  if(cheio){
+  if(cheio||!pode){
     ev.preventDefault();  // the dragover event needs to be canceled to allow firing the drop event   
+    console.log("não pode pois: Cheio: "+cheio+" ou Pré:"+pode);
   } else {
   // gets data set by setData() for current drag-and-drop operation (the ID of current dragged element),
   // using for parameter a string with the same format set in setData
-  var drag_data = ev.dataTransfer.getData('Text');
   var grid = ev.dataTransfer.getData('grid');
   var i = ev.target.getAttribute("slot");
-  var j = ev.target.parentElement.getAttribute("slot");
   var i_ant = ev.dataTransfer.getData('i_ant');
   var j_ant = ev.dataTransfer.getData('j_ant');
   // adds /appends the dropped element in the specified target

@@ -15,6 +15,7 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     $scope.nomeCadeira = '';
     $scope.colorCadeira = '#000';
     $scope.count = $scope.user.cadeiras.length;
+    $scope.pre = true;
 
     $scope.submeter = function(descr){
         var descri = document.getElementsByName(descr)[0];
@@ -31,6 +32,8 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     };
     $scope.atualizarMatriz = function(j,i, obj){
         $scope.user.matriz[j][i] = $scope.user.cadeiras[obj];
+        if($scope.user.cadeiras[obj]==undefined)
+            $scope.user.matriz[j][i] = '';
         $scope.user.limpo = false;
         timer = $timeout(function () {
             if(obj!=""){
@@ -50,6 +53,7 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     }
 
     $scope.clean = function(vet){
+
         if($scope.user.limpo){
             $scope.limparMatriz();
         } else {
@@ -62,6 +66,7 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         }
 
     $scope.putTrilha = function(ide) {
+                $scope.talimpo();
 		var vet = $scope.user.trilhas[ide].matriz;
         //$scope.user.trilhas[ide].fixa = true;
 		timer = $timeout(function () {
@@ -137,15 +142,31 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
             for (var i = 0; i < $scope.user.matriz[jota].length-1; i++) {
                 var check = $scope.user.matriz[jota][i];
                 if(check == '' || check == undefined){
+                    var pode = $scope.percorrerAtras(jota,e);
+                    if(pode){
                     $scope.entrou(e);
                     $scope.atualizarMatriz(jota,i,e);
                     num = 2;
                     break;
+                 }
                 }
             } 
             jota+=1; 
         }
         jota=0;
+    }
+
+    $scope.oi = function(){
+        console.log("entrei");
+    }
+
+    $scope.tirarMatriz = function(e){
+        var el = document.getElementById(e);
+        $scope.saiu(e);
+        var i_ant = el.parentElement.getAttribute("slot");
+        var j_ant = el.parentElement.parentElement.getAttribute("slot");
+        console.log(j_ant);
+        $scope.atualizarMatriz(j_ant,i_ant,"");
     }
 
     $scope.limparMatriz = function(){
@@ -156,6 +177,20 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         for (var x = 0; x<$scope.user.cadeiras.length; x++)
             $scope.user.cadeiras[x].matriz = true;
         $scope.user.limpo = true;
+    }
+
+    $scope.talimpo = function(){
+        var tangente = 0;
+        for (var j = 0; j<$scope.user.matriz.length;j++)
+            for(var i = 0; i< $scope.user.matriz[j].length; i++){
+                if($scope.user.matriz[j][i] != ''){
+                    tangente++;
+                    console.log("tem gente: "+$scope.user.matriz[j][i].name);
+                    break;
+                }
+            }
+        if(tangente>0)
+            $scope.user.limpo = true;
     }
 
     $scope.voltar = function(){
@@ -173,21 +208,16 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     }
 
     $scope.addCadeira = function(){
-        // Get the modal
         var modal = document.getElementById('myModal');
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal 
         modal.style.display = "block";
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -212,13 +242,54 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
          modal.style.display = "none";
     }
 
-    $scope.percorrerAtras = function(j,id){
+    $scope.percorrerAtras = function(j,ide){
         var prerrequisito = $scope.user.cadeiras[ide].pre1;
-        if(prerrequisito != '')
-        if(j<=0){
-
+        var prerrequisito2 = $scope.user.cadeiras[ide].pre2;
+        console.log("pre requisito: "+prerrequisito);
+        console.log("prerrequisito2: "+prerrequisito2);
+        console.log("ide: "+ide);
+        console.log("j: "+j);
+        var permitido = false;
+        var p1 = 0;
+        var p2 = 0;
+        if(!$scope.pre){
+            permitido = true;
+        } else if(prerrequisito != undefined){
+            if(prerrequisito2==undefined){
+                if(j>0){
+                    console.log("entrei no que o primeiro prerrequisito é algo, mas o segundo é nada. além disso estou em um j>0");
+                    console.log($scope.user.matriz);
+                    for(var i = j-1; i>=0;i--){
+                        for(var v = 0; v<6 ;v++){
+                            console.log("i: "+i+" v: "+v);
+                            if(prerrequisito==$scope.user.matriz[i][v].id){
+                                permitido = true;
+                                break;
+                            }
+                            console.log($scope.user.matriz[i][v].id);
+                        }
+                    }
+                }
+            } else {
+                if(j>0){
+                    for(var i = j; j>0;j--){
+                        for(var v = 0; v<5 ;v++){
+                            if(prerrequisito==$scope.user.matriz[j][i].id){
+                                p1 = 1;
+                            } else if(prerrequisito2==$scope.user.matriz[j][i].id){
+                                p2 = 1;
+                            }
+                        }
+                    } 
+                    if(p1==1 && p2 ==1){
+                        permitido= true;
+                    }
+                }
+            }
+        } else {
+            permitido = true;
         }
-
+        return permitido;
     }
 
     $scope.semestres = ['sem1', 'sem2', 'sem3', 'sem4', 'sem5', 'sem6', 'sem7', 'sem8'];

@@ -42,6 +42,7 @@
 </div>
 <div class="planejar">
 	<div id="matriz">
+	<input type="checkbox" name="preCheck" value="pre" ng-model="pre"> Planejar a matriz levando em consideração os pré-requisitos<br>
 		<div id="{{'sem'+($index)}}" slot="{{$index}}" ng-repeat="j in matriz track by $index">
 			<div class="number" id="{{'click'+$index}}" ng-click="fixSemestre($index)"><span class="tooltiptext">Clique para preencher o semestre com as cadeiras obrigatórias</span>{{$index+1}}</div>
 			<div class="{{'slot'+$index}}"
@@ -49,7 +50,8 @@
 			ng-repeat="i in j track by $index" 
 			ondrop="drop(event)" 
 			ondragover="allowDrop(event)">
-				<div ng-click="getData(cadeira.id)" 
+				<div 
+				ng-click="tirarMatriz(i.id)"
 				ng-if="i.apar"
 				ng-if="!i.matriz"
 				draggable="true" 
