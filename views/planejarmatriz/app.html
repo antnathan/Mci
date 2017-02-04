@@ -22,7 +22,7 @@
 				<option class="cor" value="professor">professor</option>
 			</select>
 			<a href="#conhecer" class="sumir" >
-				<img id="chamamatrizimg" src="./imagens/icon2.png"></img>
+				<img id="chamamatrizimg" src="./imagens/icon1.png"></img>
 			</a>
 		</div>	
 			<!-- The Modal -->
@@ -42,7 +42,9 @@
 </div>
 <div class="planejar">
 	<div id="matriz">
+	<div class="sobs" id="sobsMatriz">
 	<input type="checkbox" name="preCheck" value="pre" ng-model="pre"> Planejar a matriz levando em consideração os pré-requisitos<br>
+	</div>
 		<div id="{{'sem'+($index)}}" slot="{{$index}}" ng-repeat="j in matriz track by $index">
 			<div class="number" id="{{'click'+$index}}" ng-click="fixSemestre($index)"><span class="tooltiptext">Clique para preencher o semestre com as cadeiras obrigatórias</span>{{$index+1}}</div>
 			<div class="{{'slot'+$index}}"
@@ -50,6 +52,7 @@
 			ng-repeat="i in j track by $index" 
 			ondrop="drop(event)" 
 			ondragover="allowDrop(event)">
+			<span class="tooltiptextAlert" id="{{'matrizAlert'+($parent.$index)+$index}}">Alerta: {{mensagem}}</span>
 				<div 
 				ng-click="tirarMatriz(i.id)"
 				ng-if="i.apar"
@@ -64,11 +67,12 @@
 			</div>
 		</div>
 	</div>
-	<div>
+	<div id="cimadetudo">
 	<p class="sobs">Clique ou arraste para planejar sua matriz</p>
 	<div id="gridCadeirasMatriz">
 		<div class="disc" id="{{'wrap'+cadeira.id}}" 
 		ng-repeat="cadeira in cadeiras | filter: filtro | filter:myFilterBy | filter: searchText | orderBy: ordem ">
+			<span class="tooltiptextAlertLista" id="{{'listaAlert'+cadeira.id}}">Alerta: {{mensagem}}</span>
 			<div ng-click="mandarMatriz(cadeira.id)" 
 			draggable="true" 
 			ondragstart="dragStart(event)" 

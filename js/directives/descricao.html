@@ -3,9 +3,10 @@
 		<h5 id="tipo" style="background-color: {{info.color}}">{{ info.tipo }}</h5>
 		<h4 id="spaced1"><b>Prática: </b> {{ info.chp }}  Créditos</h4>
 		<h4 id="spaced2"><b>Teorica: </b> {{ info.cht }} Créditos</b></h4>
-		<h4 id="spaced3"><b>Professor(a): </b>{{ info.professor }}</h4>
-		<h4 id="spaced4"><b> Semestre: </b> {{info.semestre}}</h4>
-		<h4 id="spaced5"><b> Pré-requisitos: </b> {{ info.pre }} </h4>
-		<h4 id="spaced6"><b>Ementa: </b>{{ info.ementa }}</h4>
+		<h4 id="spaced3"><b>Turma I: {{info.horario1}} -</b> {{ info.professor1 }}</h4>
+		<h4 id="spaced4" ng-if="info.horario2"><b>Turma II: {{info.horario2}} -</b> {{ info.professor2 }}</h4>
+		<h4 id="spaced5"><b> Semestre: </b> {{info.semestre}}</h4>
+		<h4 id="spaced6"><b> Pré-requisitos: </b> {{ info.pre }} </h4>
+		<h4 id="spaced7"><b>Ementa: </b>{{ info.ementa }}</h4>
 </div>
 

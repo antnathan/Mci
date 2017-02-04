@@ -35,8 +35,11 @@
 		</div>
 	</div>
 </div>
-<footer id="commentsection">
+<div id="commentsection">
+	<div id="commentarea">
 <p id="titlecomms"><img src="imagens/iconcomments.png"/>Comentários:</p>
+<hr id="divisorAzul"/>
+
 <comentario ng-repeat="comentario in desc.comentarios" info="comentario"></comentario>
 <div class="comentar">
    <div class="form-group" ng-class="{ 'has-error': userForm.descricao.$touched && userForm.descricao.$invalid }">
@@ -53,4 +56,7 @@
       <button type="submit" ng-click="submeter('descricao')" class="btn btn-danger">PUBLICAR</button>
     </div>  
 </div>
+</div>
+<footer>
 </footer>
+</div>

@@ -31,14 +31,21 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         descri.value = '';
     };
     $scope.atualizarMatriz = function(j,i, obj){
+        $scope.user.matriz_desfazer = angular.copy($scope.user.matriz);
         $scope.user.matriz[j][i] = $scope.user.cadeiras[obj];
         if($scope.user.cadeiras[obj]==undefined)
             $scope.user.matriz[j][i] = '';
-        $scope.user.limpo = false;
+        if(obj!==''){
+            $scope.user.limpo = false;
+        } else {
+            $scope.talimpo();
+        }
         timer = $timeout(function () {
             if(obj!=""){
                 $scope.user.matriz_salva = angular.copy($scope.user.matriz);
                 $scope.entrou(obj);
+            } else {
+                $scope.user.matriz_salva = angular.copy($scope.user.matriz);
             }
         }, 1);
     };
@@ -53,7 +60,6 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     }
 
     $scope.clean = function(vet){
-
         if($scope.user.limpo){
             $scope.limparMatriz();
         } else {
@@ -67,9 +73,11 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
 
     $scope.putTrilha = function(ide) {
 		var vet = $scope.user.trilhas[ide].matriz;
+        $scope.user.desfazer = angular.copy($scope.user.matriz_desfazer);
         //$scope.user.trilhas[ide].fixa = true;
 		timer = $timeout(function () {
 			$scope.fill(vet);
+            $scope.user.desfazer = angular.copy($scope.user.matriz_salva);
 		}, 100);
     };
 
@@ -77,6 +85,7 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         var vet = $scope.user.trilhas[ide].matriz;
         var check = $scope.user.trilhas[ide].fixa;
 		$timeout.cancel(timer);
+        $scope.user.matriz_desfazer = angular.copy($scope.user.desfazer);
         $scope.clean(vet);        
     }
 
@@ -94,6 +103,7 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
                 }
             }
         }
+        $scope.user.matriz_desfazer = angular.copy($scope.user.desfazer);
     }
 
     $scope.fixSemestre = function(ide){
@@ -143,11 +153,17 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
                 if(check == '' || check == undefined){
                     var pode = $scope.percorrerAtras(jota,e);
                     if(pode){
-                    $scope.entrou(e);
-                    $scope.atualizarMatriz(jota,i,e);
-                    num = 2;
-                    break;
-                 }
+                        $scope.entrou(e);
+                        $scope.atualizarMatriz(jota,i,e);
+                        num = 2;
+                        break;
+                    } else {
+                        var alert = document.getElementById("listaAlert"+e);
+                        console.log(alert);
+                        alert.style.visibility = "visible";
+                        alert.setAttribute("visible",true);
+                        tempo = setTimeout(function(){ hideAll(); }, 3500);
+                    }
                 }
             } 
             jota+=1; 
@@ -164,7 +180,6 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         $scope.saiu(e);
         var i_ant = el.parentElement.getAttribute("slot");
         var j_ant = el.parentElement.parentElement.getAttribute("slot");
-        console.log(j_ant);
         $scope.atualizarMatriz(j_ant,i_ant,"");
     }
 
@@ -184,25 +199,30 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
             for(var i = 0; i< $scope.user.matriz[j].length; i++){
                 if($scope.user.matriz[j][i] != ''){
                     tangente++;
-                    console.log("tem gente: "+$scope.user.matriz[j][i].name);
                     break;
                 }
             }
         if(tangente>0)
+            $scope.user.limpo = false;
+        else
             $scope.user.limpo = true;
     }
 
     $scope.voltar = function(){
+        $scope.user.desfazer = angular.copy($scope.user.matriz);
+        $scope.limparMatriz();
         for (var j = 0; j<$scope.user.matriz.length;j++)
             for(var i = 0; i< $scope.user.matriz[j].length; i++){
-                $scope.user.matriz[j][i] = $scope.user.matriz_salva[j][i];
+                $scope.user.matriz[j][i] = $scope.user.matriz_desfazer[j][i];
                 if($scope.user.matriz[j][i]!=undefined)
                     var ideia = $scope.user.matriz[j][i].id;
                 if(ideia>=0)
                     $scope.user.cadeiras[ideia].matriz = false;
             }
+            $scope.talimpo();
+            $scope.user.matriz_desfazer = angular.copy($scope.user.desfazer);
         timer = $timeout(function () {
-            console.log($scope.user.matriz);
+            $scope.user.matriz_salva = angular.copy($scope.user.matriz);
         }, 100);
     }
 
@@ -244,38 +264,34 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     $scope.percorrerAtras = function(j,ide){
         var prerrequisito = $scope.user.cadeiras[ide].pre1;
         var prerrequisito2 = $scope.user.cadeiras[ide].pre2;
-        console.log("pre requisito: "+prerrequisito);
-        console.log("prerrequisito2: "+prerrequisito2);
-        console.log("ide: "+ide);
-        console.log("j: "+j);
         var permitido = false;
         var p1 = 0;
         var p2 = 0;
         if(!$scope.pre){
             permitido = true;
         } else if(prerrequisito != undefined){
+            $scope.user.mensagem = 'Você não pode fazer '+$scope.user.cadeiras[ide].name+' antes de '+$scope.user.cadeiras[prerrequisito].name;
+            $scope.mensagem = 'Você não pode fazer '+$scope.user.cadeiras[ide].name+' antes de '+$scope.user.cadeiras[prerrequisito].name;
             if(prerrequisito2==undefined){
                 if(j>0){
-                    console.log("entrei no que o primeiro prerrequisito é algo, mas o segundo é nada. além disso estou em um j>0");
-                    console.log($scope.user.matriz);
                     for(var i = j-1; i>=0;i--){
                         for(var v = 0; v<6 ;v++){
-                            console.log("i: "+i+" v: "+v);
                             if(prerrequisito==$scope.user.matriz[i][v].id){
                                 permitido = true;
                                 break;
                             }
-                            console.log($scope.user.matriz[i][v].id);
                         }
                     }
                 }
             } else {
+                $scope.user.mensagem += ' e '+$scope.user.cadeiras[prerrequisito2].name;
+                $scope.mensagem += ' e '+$scope.user.cadeiras[prerrequisito2].name;
                 if(j>0){
                     for(var i = j; j>0;j--){
                         for(var v = 0; v<5 ;v++){
-                            if(prerrequisito==$scope.user.matriz[j][i].id){
+                            if(prerrequisito==$scope.user.matriz[j][v].id){
                                 p1 = 1;
-                            } else if(prerrequisito2==$scope.user.matriz[j][i].id){
+                            } else if(prerrequisito2==$scope.user.matriz[j][v].id){
                                 p2 = 1;
                             }
                         }
@@ -288,6 +304,9 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
         } else {
             permitido = true;
         }
+        timer = $timeout(function () {
+            console.log("");
+        }, 1);
         return permitido;
     }
 
@@ -295,6 +314,7 @@ app.controller('InApp', ['$scope','userService','$timeout',  function($scope,use
     $scope.cadeiras = $scope.user.cadeiras;
     $scope.user = userService;
     $scope.matriz = $scope.user.matriz;
+    $scope.mensagem = $scope.user.mensagem;
 	$scope.bjt = {};
 	
 }])
